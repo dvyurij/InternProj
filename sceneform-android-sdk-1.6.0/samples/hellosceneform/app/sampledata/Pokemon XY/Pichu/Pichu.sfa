@@ -1,0 +1,145 @@
+{
+  materials: [
+    {
+      name: 'Material #146',
+      parameters: [
+        {
+          baseColor: 'pm0172_00_BodyB1',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Material #147',
+      parameters: [
+        {
+          baseColor: 'pm0172_00_BodyA1',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Material #148',
+      parameters: [
+        {
+          baseColor: 'pm0172_00_Eye1',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Material #149',
+      parameters: [
+        {
+          baseColor: 'pm0172_00_Mouth1',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/Pokemon XY/Pichu/Pichu.FBX',
+    name: 'Pichu',
+    recenter: 'root',
+    scale: 0.016473999999999999,
+  },
+  samplers: [
+    {
+      file: 'sampledata/Pokemon XY/Pichu\\images\\pm0172_00_BodyB1.png',
+      name: 'pm0172_00_BodyB1',
+      pipeline_name: 'images\\pm0172_00_BodyB1.png',
+    },
+    {
+      file: 'sampledata/Pokemon XY/Pichu\\images\\pm0172_00_Mouth1.png',
+      name: 'pm0172_00_Mouth1',
+      pipeline_name: 'images\\pm0172_00_Mouth1.png',
+    },
+    {
+      file: 'sampledata/Pokemon XY/Pichu\\images\\pm0172_00_BodyA1.png',
+      name: 'pm0172_00_BodyA1',
+      pipeline_name: 'images\\pm0172_00_BodyA1.png',
+    },
+    {
+      file: 'sampledata/Pokemon XY/Pichu\\images\\pm0172_00_Eye1.png',
+      name: 'pm0172_00_Eye1',
+      pipeline_name: 'images\\pm0172_00_Eye1.png',
+    },
+  ],
+  version: '0.54:1',
+}
