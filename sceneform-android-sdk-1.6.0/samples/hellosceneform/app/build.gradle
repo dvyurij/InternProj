@@ -75,3 +75,8 @@ sceneform.asset('sampledata/Pokemon XY/Pikachu/PikachuF.FBX',
         'default',
         'sampledata/Pokemon XY/Pikachu/PikachuF.sfa',
         'src/main/assets/PikachuF')
+
+sceneform.asset('sampledata/Dinosaurus/Dinosaurus.fbx',
+        'default',
+        'sampledata/Dinosaurus/Dinosaurus.sfa',
+        'src/main/assets/Dinosaurus')

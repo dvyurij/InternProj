@@ -1,0 +1,121 @@
+{
+  animations: [
+    {
+      name: 'Dinosaurus',
+      path: 'sampledata/Dinosaurus/Dinosaurus.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'Материал',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Donosaurus',
+        },
+        {
+          normalMap: 'Dino_normal',
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'Teeth',
+      parameters: [
+        {
+          baseColor: [
+            0.68000000000000005,
+            0.64985300000000001,
+            0.58479999999999999,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/Dinosaurus/Dinosaurus.fbx',
+    name: 'Dinosaurus',
+    recenter: 'root',
+    scale: 0.0072519999999999998,
+  },
+  samplers: [
+    {
+      file: 'sampledata/Dinosaurus\\Dinosaurus.fbm\\Donosaurus.jpg',
+      name: 'Donosaurus',
+      pipeline_name: 'Dinosaurus.fbm\\Donosaurus.jpg',
+    },
+    {
+      file: 'sampledata/Dinosaurus\\Dinosaurus.fbm\\Dino_normal.png',
+      name: 'Dino_normal',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: 'Dinosaurus.fbm\\Dino_normal.png',
+    },
+    {
+      file: 'sampledata/Dinosaurus\\Dinosaurus.fbm\\Dino_spec.png',
+      name: 'Dino_spec',
+      pipeline_name: 'Dinosaurus.fbm\\Dino_spec.png',
+    },
+  ],
+  version: '0.54:1',
+}
