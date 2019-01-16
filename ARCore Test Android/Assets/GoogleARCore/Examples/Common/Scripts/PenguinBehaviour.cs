@@ -21,7 +21,7 @@ public class PenguinBehaviour : MonoBehaviour {
 
 	void Update()
 	{
-		if (ButtonControlManager.Btntype == ButtonType.NULL)
+		if (ButtonControlManager.Btntype == ButtonType.NULL || ButtonControlManager.Btntype == ButtonType.Screenshot)
 		{
 			return;
 		}

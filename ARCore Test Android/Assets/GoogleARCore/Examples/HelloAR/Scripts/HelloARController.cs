@@ -29,7 +29,8 @@ public enum ButtonType
 	Walk,
 	Attack,
 
-	Remove
+	Remove,
+	Screenshot
 }
 
 namespace GoogleARCore.Examples.HelloAR
