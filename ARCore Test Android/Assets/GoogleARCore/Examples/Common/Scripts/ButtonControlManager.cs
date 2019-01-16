@@ -33,6 +33,9 @@ public class ButtonControlManager : MonoBehaviour {
 			case "Remove":
 				Btntype = ButtonType.Remove;
 				break;
+			case "Screenshot":
+				Btntype = ButtonType.Screenshot;
+				break;
 			default:
 				break;
 		}
