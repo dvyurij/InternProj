@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using GoogleARCore.Examples.Common;
 
 public class PenguinBehaviour : MonoBehaviour {
 
@@ -48,6 +49,12 @@ public class PenguinBehaviour : MonoBehaviour {
 			case ButtonType.Remove:
 				Destroy(GameObject.Find("Anchor"));
 				GameObject.Find("ButtonContainer").SetActive(false);
+				Transform trPlaneGenObj = GameObject.Find("Plane Generator").transform;
+				for (int i = 0; i < trPlaneGenObj.childCount; i++)
+				{
+					trPlaneGenObj.GetChild(i).gameObject.SetActive(true);
+				}
+				GameObject.Find("Canvas").transform.Find("peng_roundimg").gameObject.SetActive(true);
 				break;
 		}
 		ButtonControlManager.Btntype = ButtonType.NULL;
