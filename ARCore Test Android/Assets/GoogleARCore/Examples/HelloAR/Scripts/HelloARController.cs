@@ -36,6 +36,7 @@ public enum ButtonType
 namespace GoogleARCore.Examples.HelloAR
 {
     using System.Collections.Generic;
+	using System.Collections;
     using GoogleARCore;
     using GoogleARCore.Examples.Common;
     using UnityEngine;
@@ -75,6 +76,13 @@ namespace GoogleARCore.Examples.HelloAR
 
 		public GameObject ButtonContainer;
 
+		public FadeController m_fader;
+
+		public float perspectiveZoomSpeed = 0.5f;        // The rate of change of the field of view in perspective mode.
+		public float orthoZoomSpeed = 0.5f;        // The rate of change of the orthographic size in orthographic mode.
+
+		Anchor m_anchor;
+
 #else
 		/// <summary>
 		/// A model to place when a raycast from a user touch hits a plane.
@@ -108,6 +116,11 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         private bool m_IsQuitting = false;
 
+		public void Start()
+		{
+			StartCoroutine(Activate());
+		}
+
 		/// <summary>
 		/// The Unity Update() method.
 		/// </summary>
@@ -128,6 +141,33 @@ namespace GoogleARCore.Examples.HelloAR
 			}
 
 			SearchingForPlaneUI.SetActive(showSearchingUI);
+
+			// If there are two touches on the device...
+			if (PenguinBehaviour.Pengnum == (int)ModelConst.M_NUMBER && Input.touchCount == 2)
+			{
+				// Store both touches.
+				Touch touchZero = Input.GetTouch(0);
+				Touch touchOne = Input.GetTouch(1);
+
+				// Find the position in the previous frame of each touch.
+				Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+				Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+				// Find the magnitude of the vector (the distance) between the touches in each frame.
+				float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+				float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+				// Find the difference in the distances between each frame.
+				float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+
+				Vector3 m_anchorvec = m_anchor.transform.localScale;
+				m_anchorvec += new Vector3(0.01f, 0.01f, 0.01f) * deltaMagnitudeDiff;
+
+				m_anchorvec.x = Mathf.Clamp(m_anchorvec.x, 0.5f, 2.5f);
+				m_anchorvec.y = Mathf.Clamp(m_anchorvec.y, 0.5f, 2.5f);
+				m_anchorvec.z = Mathf.Clamp(m_anchorvec.z, 0.5f, 2.5f);
+				m_anchor.transform.localScale = m_anchorvec;
+			}
 
 			// If the player has not touched the screen, we are done with this update.
 			Touch touch;
@@ -235,7 +275,16 @@ namespace GoogleARCore.Examples.HelloAR
 					customObject.transform.parent = anchor.transform;
 					customEnvironObject.transform.parent = anchor.transform;
 
+					m_anchor = anchor;
+
+					//GameObject.Find("Plane Generator").transform.chi
+					Transform trPlaneGenObj = GameObject.Find("Plane Generator").transform;
+					for (int i = 0; i < trPlaneGenObj.childCount; i++)
+					{
+						trPlaneGenObj.GetChild(i).gameObject.SetActive(false);
+					}
 					ButtonContainer.SetActive(true);
+					GameObject.Find("peng_roundimg").SetActive(false);
 #else
             if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
             {
@@ -347,5 +396,13 @@ namespace GoogleARCore.Examples.HelloAR
                 }));
             }
         }
-    }
+
+		IEnumerator Activate()
+		{
+			m_fader.FadeOut(3.0f, () => {
+				Debug.Log("Fade out");
+			});
+			yield return null;
+		}
+	}
 }
